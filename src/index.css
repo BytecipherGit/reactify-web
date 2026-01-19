@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 300ms ease-out;
+}
+
+/* Hover lift animation */
+.hover-lift {
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark .hover-lift:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/*
+  Reactify UI theme
+  Instagram-inspired layout with brand colors and dark mode support.
+*/
+
+/* Light mode color variables */
+:root {
+  color-scheme: light;
+
+  /* New Brand Colors from COLOR_PALETTE.json */
+  --brand-primary: 102 126 234; /* #667eea */
+  --brand-secondary: 118 75 162; /* #764ba2 */
+  --brand-accent: 245 87 108; /* #f5576c */
+  --brand-highlight: 0 242 254; /* #00f2fe */
+
+  /* Neutral Colors */
+  --gray-50: 249 250 251;
+  --gray-100: 243 244 246;
+  --gray-200: 229 231 235;
+  --gray-300: 209 213 219;
+  --gray-400: 156 163 175;
+  --gray-500: 107 114 128;
+  --gray-600: 75 85 99;
+  --gray-700: 55 65 81;
+  --gray-800: 31 41 55;
+  --gray-900: 17 24 39;
+
+  /* Semantic Colors */
+  --success: 16 185 129;
+  --success-light: 209 250 229;
+  --warning: 245 158 11;
+  --warning-light: 254 243 199;
+  --error: 239 68 68;
+  --error-light: 254 226 226;
+  --info: 59 130 246;
+  --info-light: 219 234 254;
+
+  /* Light Mode Base */
+  --bg: 255 255 255;
+  --bg-secondary: 249 250 251;
+  --bg-tertiary: 243 244 246;
+  --text: 17 24 39;
+  --text-secondary: 107 114 128;
+  --text-muted: 156 163 175;
+  --border: 229 231 235;
+  --border-secondary: 209 213 219;
+  --card: 255 255 255;
+  --card-hover: 249 250 251;
+}
+
+/* Dark mode color variables */
+.dark {
+  color-scheme: dark;
+  --bg: 15 15 15;
+  --bg-dark: 15 15 15;
+  --bg-secondary: 26 26 26;
+  --bg-tertiary: 36 36 36;
+  --text: 255 255 255;
+  --text-secondary: 200 200 200;
+  --text-muted: 160 160 160;
+  --border: 55 65 81;
+  --border-secondary: 75 85 99;
+  --card: 26 26 26;
+  --card-hover: 36 36 36;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, transform, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+html {
+  height: 100%;
+  background-color: rgb(var(--bg));
+  color: rgb(var(--text));
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: rgb(var(--bg));
+  color: rgb(var(--text));
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+}
